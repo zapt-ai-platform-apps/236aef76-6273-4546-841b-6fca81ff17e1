@@ -1,146 +1,113 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Chart, registerables } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
-import TaxSummaryCard from './components/TaxSummaryCard';
-import TaxDeadlinesCard from './components/TaxDeadlinesCard';
-
-// Register Chart.js components
-Chart.register(...registerables);
+import { FiFileText, FiDollarSign, FiPercent, FiCheckSquare } from 'react-icons/fi';
+import TaxOverview from './components/TaxOverview';
+import TaxMenuCard from './components/TaxMenuCard';
 
 export default function Dashboard() {
-  // Demo data for tax summary
-  const pphTaxData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-    datasets: [
-      {
-        label: 'PPh Final UMKM (0.3%)',
-        data: [120000, 150000, 180000, 130000, 160000, 170000],
-        backgroundColor: 'rgba(59, 130, 246, 0.5)',
-      },
-      {
-        label: 'PPh Pasal 21',
-        data: [80000, 90000, 85000, 100000, 95000, 110000],
-        backgroundColor: 'rgba(16, 185, 129, 0.5)',
-      }
-    ],
-  };
-  
-  const chartOptions = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Ringkasan Pajak 6 Bulan Terakhir'
-      },
-    },
-  };
-
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
-        <div>
-          <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
-          <p className="mt-1 text-sm text-gray-500">Ringkasan kewajiban pajak Anda</p>
-        </div>
-        <div className="flex gap-3">
-          <Link to="/calculator" className="btn-primary cursor-pointer">
-            Hitung Pajak
-          </Link>
-          <Link to="/profile" className="btn-outline cursor-pointer">
-            Profil Bisnis
-          </Link>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <TaxSummaryCard 
-          title="PPh Final UMKM (0.3%)"
-          currentAmount={170000}
-          previousAmount={160000}
-          changePercent={6.25}
-          type="currency"
-        />
-        <TaxSummaryCard 
-          title="PPh Pasal 21"
-          currentAmount={110000}
-          previousAmount={95000}
-          changePercent={15.79}
-          type="currency"
-        />
-        <TaxSummaryCard 
-          title="PPN"
-          currentAmount={550000}
-          previousAmount={520000}
-          changePercent={5.77}
-          type="currency"
-        />
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="card lg:col-span-2">
-          <h2 className="text-lg font-medium mb-4">Tren Pembayaran Pajak</h2>
-          <div className="h-80">
-            <Bar options={chartOptions} data={pphTaxData} />
-          </div>
-        </div>
-        
-        <TaxDeadlinesCard />
+    <div className="space-y-8">
+      <div className="text-center py-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-teal-700 mb-4">
+          Pajak CV KU
+        </h1>
+        <p className="text-gray-600 max-w-3xl mx-auto">
+          Aplikasi penghitung pajak untuk CV di Indonesia berdasarkan ketentuan pajak terbaru.
+          Hitung dengan mudah PPh Final, PPh 21, PPh 22, PPh 23, PPh Pasal 4(2), PPh 25, PPN, dan validasi NPWP.
+        </p>
       </div>
       
-      <div className="card">
-        <h2 className="text-lg font-medium mb-4">Fitur Penghitungan Pajak</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50">
-            <h3 className="font-medium mb-2">PPh Final UMKM (0.3%)</h3>
-            <p className="text-sm text-gray-600 mb-3">Hitung Pajak Penghasilan Final sebesar 0.3% dari omzet bruto untuk UKM.</p>
-            <Link to="/pph" className="text-blue-600 text-sm font-medium hover:underline">
-              Hitung sekarang →
-            </Link>
-          </div>
-          
-          <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50">
-            <h3 className="font-medium mb-2">PPh Pasal 21</h3>
-            <p className="text-sm text-gray-600 mb-3">Hitung pemotongan PPh atas penghasilan atau gaji karyawan.</p>
-            <Link to="/pph" className="text-blue-600 text-sm font-medium hover:underline">
-              Hitung sekarang →
-            </Link>
-          </div>
-          
-          <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50">
-            <h3 className="font-medium mb-2">PPN (11%)</h3>
-            <p className="text-sm text-gray-600 mb-3">Hitung Pajak Pertambahan Nilai untuk usaha dengan omzet > Rp4,8 miliar.</p>
-            <Link to="/ppn" className="text-blue-600 text-sm font-medium hover:underline">
-              Hitung sekarang →
-            </Link>
-          </div>
-          
-          <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50">
-            <h3 className="font-medium mb-2">PPh Pasal 23</h3>
-            <p className="text-sm text-gray-600 mb-3">Hitung PPh yang dipungut terkait transaksi dengan pihak lain.</p>
-            <Link to="/pph" className="text-blue-600 text-sm font-medium hover:underline">
-              Hitung sekarang →
-            </Link>
-          </div>
-          
-          <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50">
-            <h3 className="font-medium mb-2">PPh Pasal 4 ayat (2)</h3>
-            <p className="text-sm text-gray-600 mb-3">Hitung PPh final atas penghasilan dari penjualan atau sewa properti.</p>
-            <Link to="/pph" className="text-blue-600 text-sm font-medium hover:underline">
-              Hitung sekarang →
-            </Link>
-          </div>
-          
-          <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50">
-            <h3 className="font-medium mb-2">PPh Pasal 25</h3>
-            <p className="text-sm text-gray-600 mb-3">Hitung angsuran PPh Pasal 25 untuk tarif PPh Badan normal.</p>
-            <Link to="/pph" className="text-blue-600 text-sm font-medium hover:underline">
-              Hitung sekarang →
-            </Link>
-          </div>
+      <TaxOverview />
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <TaxMenuCard
+          title="PPh Final UMKM (0,3%)"
+          description="Hitung PPh Final sebesar 0,3% dari omzet bruto untuk CV yang memenuhi kriteria UKM berdasarkan PP No. 55 Tahun 2022."
+          icon={<FiPercent className="h-8 w-8 text-teal-700" />}
+          linkTo="/pph-final"
+          color="bg-teal-50"
+        />
+        
+        <TaxMenuCard
+          title="PPh Pasal 21"
+          description="Perhitungan pemotongan PPh atas penghasilan atau gaji karyawan CV."
+          icon={<FiFileText className="h-8 w-8 text-blue-700" />}
+          linkTo="/pph21"
+          color="bg-blue-50"
+        />
+        
+        <TaxMenuCard
+          title="PPh Pasal 22"
+          description="Pencatatan dan perhitungan PPh yang dipungut atau dipotong terkait transaksi tertentu."
+          icon={<FiFileText className="h-8 w-8 text-indigo-700" />}
+          linkTo="/pph22"
+          color="bg-indigo-50"
+        />
+        
+        <TaxMenuCard
+          title="PPh Pasal 23"
+          description="Perhitungan PPh yang dipungut atau dipotong saat bertransaksi dengan bendaharawan pemerintah atau pihak lain."
+          icon={<FiFileText className="h-8 w-8 text-purple-700" />}
+          linkTo="/pph23"
+          color="bg-purple-50"
+        />
+        
+        <TaxMenuCard
+          title="PPh Pasal 4(2)"
+          description="Perhitungan PPh final atas penghasilan dari penjualan atau penyewaan tanah dan/atau bangunan."
+          icon={<FiFileText className="h-8 w-8 text-pink-700" />}
+          linkTo="/pph4ayat2"
+          color="bg-pink-50"
+        />
+        
+        <TaxMenuCard
+          title="PPh Pasal 25"
+          description="Perhitungan angsuran PPh Pasal 25 apabila CV menggunakan tarif PPh Badan normal."
+          icon={<FiFileText className="h-8 w-8 text-orange-700" />}
+          linkTo="/pph25"
+          color="bg-orange-50"
+        />
+        
+        <TaxMenuCard
+          title="PPN"
+          description="Perhitungan PPN atas transaksi barang dan/atau jasa kena pajak untuk CV yang sudah PKP."
+          icon={<FiDollarSign className="h-8 w-8 text-emerald-700" />}
+          linkTo="/ppn"
+          color="bg-emerald-50"
+        />
+        
+        <TaxMenuCard
+          title="PPh Pasal 24"
+          description="Perhitungan potensi kredit pajak atas penghasilan yang diperoleh CV dari luar negeri."
+          icon={<FiFileText className="h-8 w-8 text-cyan-700" />}
+          linkTo="/pph24"
+          color="bg-cyan-50"
+        />
+        
+        <TaxMenuCard
+          title="Validasi NPWP"
+          description="Fitur untuk melakukan validasi Nomor Pokok Wajib Pajak (NPWP) untuk memastikan data wajib pajak akurat."
+          icon={<FiCheckSquare className="h-8 w-8 text-amber-700" />}
+          linkTo="/npwp-validator"
+          color="bg-amber-50"
+        />
+      </div>
+      
+      <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100 mt-8">
+        <h2 className="text-xl font-bold text-teal-700 mb-4">
+          Tentang Pajak CV
+        </h2>
+        <div className="prose max-w-none text-gray-700">
+          <p>
+            CV (Commanditaire Vennootschap) adalah bentuk badan usaha di Indonesia yang 
+            memiliki kewajiban perpajakan tertentu. Berdasarkan Peraturan Pemerintah (PP) No. 55 Tahun 2022, 
+            CV yang memenuhi kriteria UMKM dapat menggunakan tarif PPh Final sebesar 0,3% dari omzet.
+          </p>
+          <p className="mt-2">
+            Masa penggunaan tarif PPh Final ini dibatasi maksimal 4 tahun. Setelah periode tersebut, 
+            CV akan dikenakan tarif PPh Badan normal. CV juga memiliki kewajiban perpajakan lain seperti 
+            PPh 21, PPh 22, PPh 23, PPh 4(2), dan PPN jika sudah menjadi Pengusaha Kena Pajak (PKP).
+          </p>
         </div>
       </div>
     </div>
