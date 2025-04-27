@@ -2,40 +2,44 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import ZaptBadge from '@/components/ZaptBadge';
-import HomePage from '@/modules/home/HomePage';
-import PPHFinalPage from '@/modules/pphFinal/PPHFinalPage';
-import PPHPasal21Page from '@/modules/pphPasal21/PPHPasal21Page';
-import PPHPasal22Page from '@/modules/pphPasal22/PPHPasal22Page';
-import PPHPasal23Page from '@/modules/pphPasal23/PPHPasal23Page';
-import PPHPasal4Ayat2Page from '@/modules/pphPasal4Ayat2/PPHPasal4Ayat2Page';
-import PPHPasal25Page from '@/modules/pphPasal25/PPHPasal25Page';
-import PPNPage from '@/modules/ppn/PPNPage';
-import PPHPasal24Page from '@/modules/pphPasal24/PPHPasal24Page';
-import NPWPValidationPage from '@/modules/npwpValidation/NPWPValidationPage';
-import NotFoundPage from '@/modules/core/NotFoundPage';
+import Sidebar from '@/components/layout/Sidebar';
+import Dashboard from '@/pages/Dashboard';
+import PPhFinalCalculator from '@/pages/PPhFinalCalculator';
+import PPhArticle21Calculator from '@/pages/PPhArticle21Calculator';
+import PPhArticle22Calculator from '@/pages/PPhArticle22Calculator';
+import PPhArticle23Calculator from '@/pages/PPhArticle23Calculator';
+import PPhArticle4Calculator from '@/pages/PPhArticle4Calculator';
+import PPhArticle25Calculator from '@/pages/PPhArticle25Calculator';
+import PPNCalculator from '@/pages/PPNCalculator';
+import PPhArticle24Calculator from '@/pages/PPhArticle24Calculator';
+import NPWPValidator from '@/pages/NPWPValidator';
+import AboutPage from '@/pages/AboutPage';
+import NotFound from '@/pages/NotFound';
 
 export default function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-gray-50">
         <Header />
-        <main className="flex-grow container mx-auto px-4 py-8">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/pph-final" element={<PPHFinalPage />} />
-            <Route path="/pph-pasal-21" element={<PPHPasal21Page />} />
-            <Route path="/pph-pasal-22" element={<PPHPasal22Page />} />
-            <Route path="/pph-pasal-23" element={<PPHPasal23Page />} />
-            <Route path="/pph-pasal-4-ayat-2" element={<PPHPasal4Ayat2Page />} />
-            <Route path="/pph-pasal-25" element={<PPHPasal25Page />} />
-            <Route path="/ppn" element={<PPNPage />} />
-            <Route path="/pph-pasal-24" element={<PPHPasal24Page />} />
-            <Route path="/validasi-npwp" element={<NPWPValidationPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </main>
-        <ZaptBadge />
+        <div className="flex flex-1 w-full">
+          <Sidebar />
+          <main className="flex-1 p-4 md:p-6 overflow-auto">
+            <Routes>
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/pph-final" element={<PPhFinalCalculator />} />
+              <Route path="/pph-21" element={<PPhArticle21Calculator />} />
+              <Route path="/pph-22" element={<PPhArticle22Calculator />} />
+              <Route path="/pph-23" element={<PPhArticle23Calculator />} />
+              <Route path="/pph-4-2" element={<PPhArticle4Calculator />} />
+              <Route path="/pph-25" element={<PPhArticle25Calculator />} />
+              <Route path="/ppn" element={<PPNCalculator />} />
+              <Route path="/pph-24" element={<PPhArticle24Calculator />} />
+              <Route path="/npwp-validator" element={<NPWPValidator />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+        </div>
         <Footer />
       </div>
     </Router>

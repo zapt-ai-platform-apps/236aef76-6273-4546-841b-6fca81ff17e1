@@ -1,7 +1,7 @@
 {
     "name": "pajak-cv-ku",
     "version": "1.0.0",
-    "description": "Aplikasi penghitung pajak untuk CV di Indonesia",
+    "description": "Aplikasi penghitung pajak untuk badan usaha CV di Indonesia",
     "type": "module",
     "scripts": {
         "dev": "vite",

@@ -2,58 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-family: 'Inter', system-ui, sans-serif;
-  }
+:root {
+  --primary-color: #1a73e8;
+  --secondary-color: #34a853;
+  --accent-color: #ea4335;
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+  --border-color: #dadce0;
+}
 
-  body {
-    @apply bg-gray-50 text-gray-900;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold;
-  }
-
-  h1 {
-    @apply text-3xl md:text-4xl;
-  }
-
-  h2 {
-    @apply text-2xl md:text-3xl;
-  }
-
-  h3 {
-    @apply text-xl md:text-2xl;
-  }
+body {
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  color: var(--text-primary);
+  background-color: var(--background-secondary);
 }
 
 @layer components {
-  .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
-  }
-
   .btn-primary {
-    @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+    @apply bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md transition duration-200 ease-in-out;
   }
-
+  
   .btn-secondary {
-    @apply btn bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-500;
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded-md transition duration-200 ease-in-out;
   }
-
-  .input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+  
+  .input-field {
+    @apply box-border px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full;
   }
-
-  .select {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
-  }
-
+  
   .card {
-    @apply bg-white rounded-xl shadow-md p-6 border border-gray-100;
+    @apply bg-white rounded-lg shadow-md p-6 mb-4;
   }
+  
+  .section-title {
+    @apply text-xl font-semibold mb-4 text-gray-800;
+  }
+}
 
-  .link {
-    @apply text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200;
-  }
+/* Responsive table styles */
+.responsive-table {
+  @apply w-full text-left border-collapse;
+}
+
+.responsive-table th {
+  @apply bg-gray-100 p-3 border-b;
+}
+
+.responsive-table td {
+  @apply p-3 border-b;
+}
+
+/* Form group styling */
+.form-group {
+  @apply mb-4;
+}
+
+.form-group label {
+  @apply block mb-1 text-gray-700 font-medium;
 }
