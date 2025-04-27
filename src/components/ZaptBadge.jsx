@@ -9,7 +9,7 @@ const ZaptBadge = () => {
         rel="noopener noreferrer"
         className="text-xs font-semibold bg-black text-white py-1 px-2 rounded-md shadow-md hover:bg-gray-800 transition-colors"
       >
-        Made on ZAPT
+        Di buat oleh maulapps
       </a>
     </div>
   );

@@ -15,7 +15,7 @@ export default function Footer() {
               rel="noopener noreferrer" 
               className="text-gray-500 hover:text-gray-700 text-sm"
             >
-              Made on ZAPT
+              Di buat oleh maulapps
             </a>
           </div>
         </div>
