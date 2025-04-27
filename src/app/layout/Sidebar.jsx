@@ -95,17 +95,6 @@ export default function Sidebar({ isOpen, closeSidebar }) {
             </NavLink>
           ))}
         </nav>
-        
-        <div className="absolute bottom-0 w-full p-4">
-          <a 
-            href="https://www.zapt.ai" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="text-gray-600 hover:text-gray-900 text-sm flex items-center"
-          >
-            Made on ZAPT
-          </a>
-        </div>
       </div>
     </>
   );

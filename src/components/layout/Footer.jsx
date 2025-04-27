@@ -13,17 +13,6 @@ export default function Footer() {
               &copy; {currentYear} Pajak CV KU. Seluruh hak cipta.
             </p>
           </div>
-
-          <div className="flex items-center">
-            <a 
-              href="https://www.zapt.ai" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-white transition-colors"
-            >
-              Made on ZAPT
-            </a>
-          </div>
         </div>
 
         <div className="mt-4 pt-4 border-t border-gray-700 text-gray-400 text-sm text-center">

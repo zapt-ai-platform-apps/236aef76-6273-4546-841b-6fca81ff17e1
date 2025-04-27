@@ -25,17 +25,6 @@ export default function Header({ toggleSidebar }) {
               <span className="text-xl font-bold">Pajak CV KU</span>
             </Link>
           </div>
-          
-          <div className="hidden md:flex md:items-center">
-            <a 
-              href="https://www.zapt.ai" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-white hover:text-blue-100 text-sm"
-            >
-              Made on ZAPT
-            </a>
-          </div>
         </div>
       </div>
     </header>
