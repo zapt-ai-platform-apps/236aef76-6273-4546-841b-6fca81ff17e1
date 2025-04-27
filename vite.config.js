@@ -9,12 +9,21 @@ export default defineConfig({
     sentryVitePlugin({
       org: "zapt-apps",
       project: process.env.VITE_PUBLIC_APP_ID,
-      authToken: process.env.SENTRY_AUTH_TOKEN
+      authToken: process.env.SENTRY_AUTH_TOKEN,
     })
   ],
+  build: {
+    target: 'esnext',
+    polyfillDynamicImport: false,
+    sourcemap: true
+  },
   resolve: {
+    conditions: ['development', 'browser'],
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
+  optimizeDeps: {
+    exclude: ['drizzle-orm']
+  }
 });

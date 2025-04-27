@@ -1,30 +1,43 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Layout from '@/components/layout/Layout';
-import Dashboard from '@/modules/dashboard/Dashboard';
-import TaxCalculator from '@/modules/tax/TaxCalculator';
-import BusinessProfile from '@/modules/business/BusinessProfile';
-import PPHCalculator from '@/modules/tax/PPHCalculator';
-import PPNCalculator from '@/modules/tax/PPNCalculator';
-import TaxSettings from '@/modules/tax/TaxSettings';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import ZaptBadge from '@/components/ZaptBadge';
+import HomePage from '@/modules/home/HomePage';
+import PPHFinalPage from '@/modules/pphFinal/PPHFinalPage';
+import PPHPasal21Page from '@/modules/pphPasal21/PPHPasal21Page';
+import PPHPasal22Page from '@/modules/pphPasal22/PPHPasal22Page';
+import PPHPasal23Page from '@/modules/pphPasal23/PPHPasal23Page';
+import PPHPasal4Ayat2Page from '@/modules/pphPasal4Ayat2/PPHPasal4Ayat2Page';
+import PPHPasal25Page from '@/modules/pphPasal25/PPHPasal25Page';
+import PPNPage from '@/modules/ppn/PPNPage';
+import PPHPasal24Page from '@/modules/pphPasal24/PPHPasal24Page';
+import NPWPValidationPage from '@/modules/npwpValidation/NPWPValidationPage';
+import NotFoundPage from '@/modules/core/NotFoundPage';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="calculator" element={<TaxCalculator />} />
-          <Route path="profile" element={<BusinessProfile />} />
-          <Route path="pph" element={<PPHCalculator />} />
-          <Route path="ppn" element={<PPNCalculator />} />
-          <Route path="settings" element={<TaxSettings />} />
-        </Route>
-      </Routes>
-      
-      <a href="https://www.zapt.ai" target="_blank" rel="noopener noreferrer" className="zapt-badge">
-        Made on ZAPT
-      </a>
-    </div>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow container mx-auto px-4 py-8">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/pph-final" element={<PPHFinalPage />} />
+            <Route path="/pph-pasal-21" element={<PPHPasal21Page />} />
+            <Route path="/pph-pasal-22" element={<PPHPasal22Page />} />
+            <Route path="/pph-pasal-23" element={<PPHPasal23Page />} />
+            <Route path="/pph-pasal-4-ayat-2" element={<PPHPasal4Ayat2Page />} />
+            <Route path="/pph-pasal-25" element={<PPHPasal25Page />} />
+            <Route path="/ppn" element={<PPNPage />} />
+            <Route path="/pph-pasal-24" element={<PPHPasal24Page />} />
+            <Route path="/validasi-npwp" element={<NPWPValidationPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
+        <ZaptBadge />
+        <Footer />
+      </div>
+    </Router>
   );
 }

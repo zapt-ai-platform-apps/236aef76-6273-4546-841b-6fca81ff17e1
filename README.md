@@ -1,66 +1,38 @@
 # Pajak CV KU
 
-Aplikasi penghitung pajak untuk badan usaha CV di Indonesia. Aplikasi ini dirancang untuk membantu badan usaha berbentuk Commanditaire Vennootschap (CV) dalam mengelola dan menghitung kewajiban perpajakan mereka secara otomatis sesuai dengan peraturan yang berlaku.
+Aplikasi penghitung pajak untuk badan usaha berbentuk *Commanditaire Vennootschap* (CV) di Indonesia.
 
-## Fitur
+## Tentang Aplikasi
 
-- **Perhitungan Otomatis PPh Final UMKM (0.3%)** - Untuk CV dengan omzet hingga Rp4,8 miliar per tahun
-- **Monitoring batas waktu penggunaan PPh Final** - Maksimal 4 tahun
-- **Perhitungan jenis pajak lainnya**:
-  - PPh Pasal 21 (pajak penghasilan karyawan)
-  - PPh Pasal 22 (pajak atas transaksi tertentu)
-  - PPh Pasal 23 (pajak transaksi dengan pihak lain)
-  - PPh Pasal 4 ayat (2) (pajak final untuk penghasilan tertentu)
-  - PPh Pasal 25 (angsuran pajak bulanan)
-- **Perhitungan PPN** - Untuk CV dengan status PKP
-- **Validasi NPWP** - Memastikan format NPWP yang benar
+Pajak CV KU dirancang untuk membantu badan usaha berbentuk CV di Indonesia dalam mengelola dan menghitung kewajiban perpajakan mereka secara otomatis sesuai dengan peraturan yang berlaku.
 
-## Penggunaan
+Fitur-fitur utama aplikasi ini meliputi:
 
-1. Pilih jenis pajak yang ingin dihitung
-2. Masukkan nilai-nilai yang diperlukan (omzet, nilai transaksi, dll)
-3. Sistem akan otomatis menghitung kewajiban pajak Anda
+- **Perhitungan Otomatis PPh Final UMKM:** Menghitung Pajak Penghasilan (PPh) Final sebesar 0,3% dari omzet bruto bagi CV yang memenuhi kriteria sebagai Usaha Kecil dan Menengah (UKM).
+- **Perhitungan Otomatis PPh Pasal 21:** Perhitungan pemotongan PPh atas penghasilan karyawan.
+- **Perhitungan PPh Pasal 22:** Perhitungan PPh yang dipungut terkait transaksi tertentu.
+- **Perhitungan PPh Pasal 23:** Perhitungan PPh yang dipungut saat bertransaksi dengan bendaharawan pemerintah atau pihak lain.
+- **Perhitungan PPh Pasal 4 Ayat (2):** Perhitungan PPh final atas penghasilan dari penjualan atau penyewaan tanah dan/atau bangunan.
+- **Perhitungan PPh Pasal 25:** Perhitungan angsuran PPh Pasal 25 untuk CV.
+- **Perhitungan Otomatis PPN:** Menghitung Pajak Pertambahan Nilai (PPN) atas transaksi barang dan/atau jasa kena pajak.
+- **Perhitungan PPh Pasal 24:** Menghitung potensi kredit pajak atas penghasilan dari luar negeri.
+- **Validasi NPWP:** Fitur untuk memvalidasi format Nomor Pokok Wajib Pajak (NPWP).
 
-## Teknologi
+## Teknologi yang Digunakan
 
 - React.js
 - Tailwind CSS
-- Chart.js
+- React Router
+- Headless UI
+- Heroicons
 
-## Prasyarat
+## Pengembangan Lokal
 
-Node.js versi 14 atau lebih tinggi
+1. Clone repositori
+2. Install dependensi: `npm install`
+3. Jalankan aplikasi: `npm run dev`
+4. Buka `http://localhost:5173` di browser
 
-## Instalasi
+## Disclaimer
 
-```bash
-# Clone repositori
-git clone [url-repositori]
-
-# Pindah ke direktori proyek
-cd pajak-cv-ku
-
-# Instal dependensi
-npm install
-
-# Jalankan aplikasi dalam mode pengembangan
-npm run dev
-```
-
-## Pembangunan untuk Produksi
-
-```bash
-npm run build
-```
-
-## Ketentuan dan Peraturan Pajak
-
-Aplikasi ini mengacu pada peraturan perpajakan terbaru yang berlaku di Indonesia, termasuk:
-
-- PP No. 55 Tahun 2022 mengenai PPh Final UMKM 0.3%
-- Peraturan perpajakan terkait PPh Pasal 21, 22, 23, 4(2), dan 25
-- Peraturan terkait PPN
-
-## Catatan Penting
-
-Aplikasi ini adalah alat bantu untuk perhitungan estimasi pajak. Untuk perhitungan resmi, konsultasikan dengan akuntan atau konsultan pajak.
+Aplikasi ini dibuat untuk membantu perhitungan pajak. Untuk informasi resmi, selalu rujuk ke peraturan perpajakan terbaru dan konsultasikan dengan konsultan pajak.
